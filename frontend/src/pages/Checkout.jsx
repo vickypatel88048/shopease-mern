@@ -103,13 +103,13 @@ function Checkout() {
           try {
             // Verify Payment
             const verify = await axios.post(
-              "http://localhost:5000/api/payment/verify",
+              `${import.meta.env.VITE_API_URL}/api/payment/verify`,
               response
             );
 
             if (verify.data.success) {
               // Save Order
-              await axios.post("http://localhost:5000/api/orders", {
+              await axios.post(`${import.meta.env.VITE_API_URL}/api/orders`, {
                 customerName: formData.name,
                 email: formData.email,
                 phone: formData.phone,
