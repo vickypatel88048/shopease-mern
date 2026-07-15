@@ -84,12 +84,12 @@ function Checkout() {
       }
 
       // Create Razorpay Order
-      const { data } = await axios.post(
-        "http://localhost:5000/api/payment/create-order",
-        {
-          amount: totalPrice,
-        }
-      );
+     const { data } = await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/payment/create-order`,
+  {
+    amount: totalPrice,
+  }
+);
 
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
